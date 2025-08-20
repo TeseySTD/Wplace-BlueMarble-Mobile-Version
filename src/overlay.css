@@ -19,6 +19,12 @@
   -webkit-transform-style: preserve-3d;
 }
 
+@media screen and (max-width: 700px) {
+  #bm-overlay, #bm-overlay-telemetry {
+    max-width: 100px;
+  }
+}
+
 /* Smooth transitions for minimize/maximize functionality */
 #bm-contain-userinfo,
 #bm-overlay hr, #bm-overlay-telemetry hr,
