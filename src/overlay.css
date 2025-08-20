@@ -277,146 +277,119 @@ div:has(> #bm-input-file-template),
 #bm-overlay button:disabled, #bm-overlay-telemetry button:disabled {
   text-decoration: line-through;
 }
-
 @media screen and (max-width: 700px) {
-  /* Main container: make it more adaptive, don't overlap the entire screen,
-     limit the height and allow scrolling inside the overlay */
-  #bm-overlay,
-  #bm-overlay-telemetry {
-    left: 8px;
-    right: 8px;
-    bottom: 12px;
-    top: auto; /* allows the overlay to be placed closer to the bottom of the screen */
-    max-width: calc(100% - 16px);
-    width: auto;
-    padding: 8px;
-    border-radius: 10px;
-    font-size: 0.95rem;
-    max-height: 70vh; /* doesn't take up the whole screen */
-    overflow: auto;   /* internal scrolling when content is large */
-    -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
+  /* Reduce overlay to 1/5 of the screen */
+  #bm-overlay, #bm-overlay-telemetry {
+    max-width: 20vw;
+    min-width: 60px;
+    padding: 4px;
+    font-size: 8px;
+    border-radius: 3px;
+    transform-origin: top left;
   }
 
-  /* More convenient area for dragging on touch */
-  #bm-bar-drag,
-  #bm-bar-drag-telemetry {
-    height: 1.6em;
-    min-height: 28px;
-    margin-bottom: 0.4em;
-    touch-action: pan-y; /* allows vertical scrolling of the page while dragging */
-  }
-
-  /* Header and logo are better placed in one column/row with adaptation */
-  #bm-contain-header,
-  #bm-contain-header-telemetry {
-    display: flex;
-    gap: 0.5ch;
-    align-items: center;
-    justify-content: flex-start;
-  }
-
-  /* Reduce the size of the logo so it doesn't take up too much space */
-  #bm-overlay img,
-  #bm-overlay-telemetry img {
-    height: 1.8em;
-    margin-right: 0.5ch;
-    display: inline-block;
-    vertical-align: middle;
-  }
-
-  /* Header is block-level, so it wraps to a new line when needed */
-  #bm-overlay h1,
-  #bm-overlay-telemetry h1 {
-    display: block;
-    font-size: large;
-    line-height: 1.1;
+  /* Correct heading size */
+  #bm-overlay h1, #bm-overlay-telemetry h1 {
+    font-size: 10px;
     margin: 0;
-    word-break: break-word;
   }
 
-  /* Buttons are full-width and larger for touch */
-  #bm-contain-buttons-action,
-  #bm-contain-buttons-template {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5ch;
-    align-items: stretch;
+  /* Reduce image size */
+  #bm-overlay img {
+    height: 12px;
+    margin-right: 2px;
   }
 
-  #bm-overlay button,
-  #bm-overlay-telemetry button {
-    width: 100%;
-    padding: 0.55em 0.75em;
-    font-size: 0.95rem;
-    box-sizing: border-box;
-  }
-
-  /* Make the input for coordinates more compact on mobile */
+  /* Minimize input fields */
   #bm-contain-coords input[type="number"] {
-    width: 4.5ch;
-    margin-left: 0.5ch;
-    font-size: 0.95rem;
+    width: 2ch;
+    font-size: 6px;
+    padding: 1px;
+    margin-left: 2px;
   }
 
-  /* Status/log is limited in height and allows scrolling */
+  /* Minimize help and coords buttons */
+  .bm-help {
+    height: 8px;
+    width: 8px;
+    font-size: 6px;
+    line-height: 6px;
+  }
+
+  #bm-button-coords {
+    padding: 1px;
+    font-size: 6px;
+  }
+
+  /* Minimize buttons */
+  #bm-overlay button, #bm-overlay-telemetry button {
+    padding: 1px 2px;
+    border-radius: 2px;
+    font-size: 6px;
+  }
+
+  /* Status field */
   #bm-output-status {
-    max-height: 8.5em;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
+    height: 15px;
+    font-size: 6px;
+    padding: 1px;
   }
 
-  /* Less spacing between blocks */
+  /* Minimize margins */
   #bm-contain-userinfo,
   #bm-contain-automation,
   #bm-contain-coords,
   #bm-contain-buttons-template,
   div:has(> #bm-input-file-template),
   #bm-output-status {
-    margin-top: 0.35em;
+    margin-top: 2px;
   }
 
-  /* Larger icons/buttons for questions and pins for convenience */
-  .bm-help,
-  #bm-button-coords {
-    height: 2em;
-    width: 2em;
-    line-height: 2em;
+  /* Minimized state */
+  #bm-overlay[style*="padding: 5px"], 
+  #bm-overlay-telemetry[style*="padding: 5px"] {
+    min-width: 40px;
+    max-width: 15vw;
+    padding: 2px;
   }
 
-  /* Reduce letter spacing on mobile for better readability */
-  div#bm-overlay,
-  div#bm-overlay-telemetry {
-    letter-spacing: 0.02em;
+  /* Small elements */
+  #bm-overlay small {
+    font-size: 5px;
   }
 
-  /* When needed, allow expanding/collapsing sections
-     (class .collapsed / .expanded can be controlled with JS) */
-  #bm-contain-automation.collapsed,
-  #bm-contain-userinfo.collapsed {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.18s ease;
+  /* Checkboxes and labels */
+  #bm-contain-automation input[type="checkbox"] {
+    margin-right: 1px;
+    transform: scale(0.5);
   }
 
-  #bm-contain-automation.expanded,
-  #bm-contain-userinfo.expanded {
-    max-height: 18em;
-    overflow: auto;
+  #bm-contain-automation label {
+    font-size: 6px;
+    margin-right: 1px;
   }
 
-  /* If you want to always pin the overlay to the bottom (recommended for mobile),
-     add the class .bottom (control with JS when mobile is detected) */
-  #bm-overlay.bottom,
-  #bm-overlay-telemetry.bottom {
-    top: auto !important;
-    bottom: 12px !important;
-    left: 8px !important;
-    right: 8px !important;
+  /* Drag bar */
+  #bm-bar-drag, #bm-bar-drag-telemetry {
+    height: 4px;
+    margin-bottom: 2px;
   }
 
-  /* Ensure the hidden file input doesn't cause issues on mobile */
-  #bm-input-file-template,
-  input[type="file"][id*="template"] {
-    display: none !important;
+  /* SVG icons */
+  #bm-button-favorite svg,
+  #bm-button-template svg {
+    height: 6px;
+    margin-top: 0;
+  }
+
+  #bm-button-coords svg {
+    width: 6px;
+  }
+
+  /* Button containers */
+  #bm-contain-buttons-template,
+  #bm-contain-buttons-action,
+  div:has(> #bm-button-teleport) {
+    gap: 1px;
   }
 }
