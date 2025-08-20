@@ -195,6 +195,8 @@
         <img alt="Click the 'Add to Firefox' button" src="https://github.com/SwingTheVine/Wplace-BlueMarble/blob/main/docs/assets/ComputerFireFoxInstall1.png"></li>
         <li><strong>One-click install:</strong> Click this link to Install Blue Marble directly: <a href="https://github.com/SwingTheVine/Wplace-BlueMarble/releases/download/pre/BlueMarble.user.js" target="_blank" rel="noopener noreferrer"><strong>Install Blue Marble</strong></a>
         <br>
+        Or if you want to get my version try it:
+        <li><strong>One-click install:</strong> Click this link and open raw file to Install Blue Marble directly and: <a href="https://github.com/TeseySTD/Wplace-BlueMarble-Mobile-Version/blob/main/downloads/Blue%20Marble%20For%20Mobile%20Devices-0.84.0.user.js" target="_blank" rel="noopener noreferrer"><strong>Install Blue Marble</strong></a>
         TamperMonkey will automatically detect the userscript and prompt you to install it.</li>
         <li>Refresh the <a href="https://wplace.live/" target="_blank" rel="noopener noreferrer">wplace.live</a> webpage.</li>
       </ol>
